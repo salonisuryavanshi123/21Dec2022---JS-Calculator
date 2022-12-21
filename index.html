@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JS Calculator</title>
+        <style>
+            div.myCalculator{
+                width: 350px;
+                height:450px;
+                background: #333;
+                margin: 50px auto;
+                border-radius:20px;
+            }
+            div.myResult{
+                width: 90%;
+                height: 80px;
+                line-height: 60px;
+
+                margin: 50px auto;
+                background: #ccc;
+                border-radius: 10px;
+                line-height: 80px;
+                position:relative;
+                top: 20px;
+                padding-right:20px;
+                text-align: right;
+                font-size: 2em;
+                text-align: right;
+            }
+            table button{
+                padding: 18px;
+                width: 82px;
+                font-weight: bolder;
+                border-radius: 100px;
+                font-size: 30px;
+            }
+        </style>>
+    </head>
+    <body>
+        <div class="myCalculator">
+        <div class="myResult"></div>
+        <table class="mytable">
+            <tr>
+                <td>
+                    <button onclick="saloni(this)">7</button>
+                </td>
+                <td>
+                    <button onclick="saloni(this)">8</button>
+                </td>
+                <td>
+                    <button onclick="saloni(this)">9</button>
+                </td>
+                <td>
+                    <button onclick="saloni(this)">x</button>
+                </td>
+            </tr>
+            </tr>
+                <td>
+                    <button onclick="saloni(this)">4</button>
+                </td>
+                <td>
+                    <button onclick="saloni(this)">5</button>
+                </td>
+                <td>
+                    <button onclick="saloni(this)">6</button>
+                </td>
+                <td>
+                    <button onclick="saloni(this)">/</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="saloni(this)">1</button>
+                </td>
+                <td>
+                    <button onclick="saloni(this)">2</button>
+                </td>
+                <td>
+                    <button onclick="saloni(this)">3</button>
+                </td>
+                <td>
+                    <button onclick="saloni(this)">-</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="saloni(this)">0</button>
+                </td>
+                <td>
+                    <button onclick="saloni(this)">.</button>
+                </td>
+                <td>
+                    <button onclick="saloni(this)">=</button>
+                </td>
+                <td>
+                    <button onclick="saloni(this)">+</button>
+                </td>
+            </tr>
+        </table>
+        </div>
+
+        
+        <script>
+            //I can write the JS code before the closing of head tag
+            //Global Variable
+            //object.method
+            let r = document.querySelector("div.myResult");
+            var leftValue;
+            let rightValue;
+            var operator;
+
+            //1. Function Defination
+            function saloni(x){  //Actual Argument
+                switch(x.innerHTML) {
+                case 'x':
+                    // code block
+                    console.log('Multiplication Operator');
+                    break;
+                case '/':
+                    // code block
+                    leftValue = r.innerHTML;
+                    console.log('LeftValue is',leftValue);
+                    operator = 'x';
+                    console.log('Division Operator');
+                    break;
+                case '-':
+                    // code block
+                    console.log('Substraction Operator');
+                    break;
+                case '+':
+                    // code block
+                    console.log('Addition Operator');
+                    break;
+                case '=':
+                    // code block
+                    console.log('Result');
+                    break;
+                default:
+                    // code block
+                }
+                //function body
+                console.log(x.innerHTML);
+                r.innerHTML = r.innerHTML + x.innerHTML;
+                //console.log(r.innerHTML);
+
+                
+            }
+        </script>
+    </body>
+</html>
