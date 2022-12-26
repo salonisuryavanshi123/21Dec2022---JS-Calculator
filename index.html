@@ -53,7 +53,7 @@
                     <button onclick="saloni(this)">9</button>
                 </td>
                 <td>
-                    <button onclick="saloni(this)">x</button>
+                    <button onclick="saloni(this)">X</button>
                 </td>
             </tr>
             </tr>
@@ -103,50 +103,77 @@
 
         
         <script>
+            var isOperatorButtonClicked = false; //false
             //I can write the JS code before the closing of head tag
             //Global Variable
             //object.method
             let r = document.querySelector("div.myResult");
             var leftValue;
             let rightValue;
-            var operator;
+            var operator='';
 
+           
             //1. Function Defination
-            function saloni(x){  //Actual Argument
-                switch(x.innerHTML) {
-                case 'x':
+            function saloni(a){  // Formal argument
+                console.log(a);
+                
+                r.innerHTML = r.innerHTML + a.innerHTML;
+                switch(a.innerHTML) {
+                case 'X':
+                    isOperatorButtonClicked = true;
                     // code block
-                    console.log('Multiplication Operator');
+                    operator = 'X';
+                    
+                    leftValue = r.innerHTML;
+                    window.localStorage.setItem('leftValue',leftValue);
+                    window.localStorage.setItem('operator','X');
+                    console.log('LeftValue is',leftValue);
+                    console.log('RightValue is',rightValue);
                     break;
                 case '/':
+                    isOperatorButtonClicked = true;
                     // code block
-                    leftValue = r.innerHTML;
-                    console.log('LeftValue is',leftValue);
-                    operator = 'x';
                     console.log('Division Operator');
                     break;
                 case '-':
+                    isOperatorButtonClicked = true;
                     // code block
                     console.log('Substraction Operator');
                     break;
                 case '+':
+                    isOperatorButtonClicked = true;
                     // code block
                     console.log('Addition Operator');
                     break;
                 case '=':
-                    // code block
-                    console.log('Result');
+                    isOperatorButtonClicked = false;
+                    
+                    leftValue = window.localStorage.getItem('leftValue');
+                    rightValue = window.localStorage.getItem('rightValue');
+                    operator = window.localStorage.getItem('operator');
+
+                    switch(operator){
+                        case "X":
+                            leftValue = parseFloat(leftValue); //String into number
+                            righttValue = parseFloat(rightValue); //String into number
+                            console.log(leftValue*rightValue);
+                            r.innerHTML = leftValue*rightValue;
+                        break;
+
+                        default:
+                    }
                     break;
                 default:
                     // code block
                 }
-                //function body
-                console.log(x.innerHTML);
-                r.innerHTML = r.innerHTML + x.innerHTML;
-                //console.log(r.innerHTML);
-
-                
+                if(isOperatorButtonClicked === true){
+                    rightValue = a.innerHTML;
+                    rightValue = window.localStorage.setItem('rightValue',rightValue)
+                    console.log('Right Value',a.innerHTML);
             }
+
+                //function body
+        }
         </script>
     </body>
 </html>
